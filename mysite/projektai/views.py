@@ -10,7 +10,12 @@ from django.contrib import messages
 # REGISTER IMPORTS END
 
 def index(request):
-    return render(request,'index.html')
+
+    context = {
+        "projektai": Projektas.objects.all().count(),
+    }
+
+    return render(request,'index.html', context=context)
 
 def projektai(request):
 
