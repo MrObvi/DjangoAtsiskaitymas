@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %} Projektai {% endblock %}
+
+{% block content %}
+
+<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+<!--    <img class="me-3" src="../assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">-->
+    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-card-checklist me-3" viewBox="0 0 16 16">
+  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+</svg>
+
+
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1">Projektai</h1>
+      <small>Visi musu projektai</small>
+    </div>
+  </div>
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Projektas</th>
+      <th scope="col">Pradžios data</th>
+      <th scope="col">Pabaigos data</th>
+      <th scope="col">Darbuotojai</th>
+      <th scope="col">Klientas</th>
+      <th scope="col">Darbai</th>
+      <th scope="col">Saskaita</th>
+      <th scope="col">Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for projektas in projektas_list %}
+    <tr>
+      <th scope="row">{{projektas.pavadinimas}}</th>
+      <td>{{projektas.pradzios_data}}</td>
+      <td>{{projektas.pabaigos_data}}</td>
+      <td>{{projektas.darbuotojas_id.pavarde}}</td>
+      <td>{{projektas.klientas_id}}</td>
+      <td>{{projektas.darbas_id.pavadinimas}}</td>
+      <td>{{projektas.saskaita_id}}</td>
+        <td>{{projektas.saskaita_id.suma}}</td>
+    </tr>
+{% endfor %}
+<!--    <tr>-->
+<!--      <th scope="row">2</th>-->
+<!--      <td>Jacob</td>-->
+<!--      <td>Thornton</td>-->
+<!--      <td>@fat</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">3</th>-->
+<!--      <td colspan="2">Larry the Bird</td>-->
+<!--      <td>@twitter</td>-->
+<!--    </tr>-->
+  </tbody>
+</table>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; pirmas</a>
+            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+        {% endif %}
+
+        <span class="current">
+            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
