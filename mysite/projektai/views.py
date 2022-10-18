@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Projektas
@@ -23,6 +23,10 @@ def projektai(request):
         "projektai": Projektas.objects.all()
     }
     return render(request,'projektai.html',context=context)
+def projektasView(request, projektas_id):
+
+    vienas_projektas = get_object_or_404(Projektas, pk=projektas_id)
+    return render(request,'projektas.html',{'projektas':vienas_projektas})
 
 @csrf_protect
 def register(request):

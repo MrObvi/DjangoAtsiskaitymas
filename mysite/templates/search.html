@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Paieškos pagal "{{query}}" rezultatai(Nuorados neveikia):</h1>
+  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
   </br>
   {% if projektas %}
   <ul>
     {% for project in projektas %}
       <li>
-        <a href="{# project.id #}">{{ project.pavadinimas }}</a> {# project.aprasymas #}
+        <h4><a href="{% url 'projektas' project.id %}">{{ project.pavadinimas }}</a></h4>
       </li>
+    <img src="{{ project.nuotrauka.url }}"/>
     {% endfor %}
   </ul>
   {% else %}

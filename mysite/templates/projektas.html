@@ -12,59 +12,59 @@
 
 
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1">Projektai</h1>
-      <small>Visi musu projektai</small>
+      <h1 class="h6 mb-0 text-white lh-1">Projektas</h1>
+      <h2>{{ projektas.pavadinimas }}</h2>
     </div>
   </div>
-
-
-
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Projektas</th>
-      <th scope="col">Nuotrauka</th>
+
       <th scope="col">Pradžios data</th>
       <th scope="col">Pabaigos data</th>
       <th scope="col">Darbuotojai</th>
       <th scope="col">Klientas</th>
       <th scope="col">Darbai</th>
       <th scope="col">Saskaita</th>
-        <th scope="col">Aprasymas</th>
+
       <th scope="col">Suma</th>
     </tr>
   </thead>
   <tbody>
-  {% for projekto in projektai %}
+
     <tr>
 
-      <th scope="row"><a href="{% url 'projektas' projekto.id %}">{{projekto.pavadinimas}}</a></th>
-      <th><img src="{{ projekto.nuotrauka.url }}" class="card-img-top"></th>
-      <td>{{projekto.pradzios_data}}</td>
-      <td>{{projekto.pabaigos_data}}</td>
-      <td>{{projekto.darbuotojas_id.pavarde}}</td>
-      <td>{{projekto.klientas_id}}</td>
-      <td>{{projekto.darbas_id.pavadinimas}}</td>
-      <td>{{projekto.saskaita_id}}</td>
-        <td>{{projekto.aprasymas | safe}}</td>
-        <td>{{projekto.saskaita_id.suma}}</td>
+      <th scope="row">{{projektas.pavadinimas}}</th>
+
+      <td>{{projektas.pradzios_data}}</td>
+      <td>{{projektas.pabaigos_data}}</td>
+      <td>{{projektas.darbuotojas_id.pavarde}}</td>
+      <td>{{projektas.klientas_id}}</td>
+      <td>{{projektas.darbas_id.pavadinimas}}</td>
+      <td>{{projektas.saskaita_id}}</td>
+
+        <td>{{projektas.saskaita_id.suma}}</td>
     </tr>
-{% endfor %}
-<!--    <tr>-->
-<!--      <th scope="row">2</th>-->
-<!--      <td>Jacob</td>-->
-<!--      <td>Thornton</td>-->
-<!--      <td>@fat</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row">3</th>-->
-<!--      <td colspan="2">Larry the Bird</td>-->
-<!--      <td>@twitter</td>-->
-<!--    </tr>-->
+
+
   </tbody>
 </table>
 
+
+<div class="container author">
+
+    <h4> {{ projektas.aprasymas | safe }}</h4>
+    <hr/>
+    <img src="{{ projektas.nuotrauka.url }}"></img>
+    </hr>
+    </br>
+<!--    <h5>Mes turime šias {{ author.first_name }} {{ author.last_name }} knygas:</h5>-->
+<!--    {% for i in author.books.all %}-->
+<!--       <li>{{ i.title }}</li>-->
+<!--    {% endfor %}-->
+    </div>
 
 
 {% endblock %}

@@ -38,7 +38,7 @@
   <tbody>
   {% for projektas in projektas_list %}
     <tr>
-      <th scope="row">{{projektas.pavadinimas}}</th>
+      <th scope="row"><a href="{% url 'projektas' projektas.id %}">{{projektas.pavadinimas}}</a></th>
       <th><img src="{{ projektas.nuotrauka.url }}" class="card-img-top"></th>
       <td>{{projektas.pradzios_data}}</td>
       <td>{{projektas.pabaigos_data}}</td>
