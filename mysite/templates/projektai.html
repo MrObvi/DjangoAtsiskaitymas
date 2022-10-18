@@ -24,25 +24,30 @@
   <thead>
     <tr>
       <th scope="col">Projektas</th>
+      <th scope="col">Nuotrauka</th>
       <th scope="col">Pradžios data</th>
       <th scope="col">Pabaigos data</th>
       <th scope="col">Darbuotojai</th>
       <th scope="col">Klientas</th>
       <th scope="col">Darbai</th>
       <th scope="col">Saskaita</th>
+        <th scope="col">Aprasymas</th>
       <th scope="col">Suma</th>
     </tr>
   </thead>
   <tbody>
   {% for projektas in projektai %}
     <tr>
+
       <th scope="row">{{projektas.pavadinimas}}</th>
+      <th><img src="{{ projektas.nuotrauka.url }}" class="card-img-top"></th>
       <td>{{projektas.pradzios_data}}</td>
       <td>{{projektas.pabaigos_data}}</td>
       <td>{{projektas.darbuotojas_id.pavarde}}</td>
       <td>{{projektas.klientas_id}}</td>
       <td>{{projektas.darbas_id.pavadinimas}}</td>
       <td>{{projektas.saskaita_id}}</td>
+        <td>{{projektas.aprasymas | safe}}</td>
         <td>{{projektas.saskaita_id.suma}}</td>
     </tr>
 {% endfor %}
@@ -60,22 +65,6 @@
   </tbody>
 </table>
 
-  <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
-        {% endif %}
 
-        <span class="current">
-            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 
 {% endblock %}

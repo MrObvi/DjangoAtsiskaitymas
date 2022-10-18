@@ -7,5 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('projektai/',views.projektai, name="projektai"),
     path('register/', views.register, name='register'),
-    path('user-project/', views.UserProjektasListView.as_view(), name='user-projektai')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('user-project/', views.UserProjektasListView.as_view(), name='user-projektai'),
+    path('tinymce/', include('tinymce.urls')),
+] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

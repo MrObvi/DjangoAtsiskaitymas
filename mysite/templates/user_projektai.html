@@ -24,12 +24,14 @@
   <thead>
     <tr>
       <th scope="col">Projektas</th>
+      <th scope="col">Nuotrauka</th>
       <th scope="col">Pradžios data</th>
       <th scope="col">Pabaigos data</th>
       <th scope="col">Darbuotojai</th>
       <th scope="col">Klientas</th>
       <th scope="col">Darbai</th>
       <th scope="col">Saskaita</th>
+        <th scope="col">Aprasymas</th>
       <th scope="col">Suma</th>
     </tr>
   </thead>
@@ -37,12 +39,14 @@
   {% for projektas in projektas_list %}
     <tr>
       <th scope="row">{{projektas.pavadinimas}}</th>
+      <th><img src="{{ projektas.nuotrauka.url }}" class="card-img-top"></th>
       <td>{{projektas.pradzios_data}}</td>
       <td>{{projektas.pabaigos_data}}</td>
       <td>{{projektas.darbuotojas_id.pavarde}}</td>
       <td>{{projektas.klientas_id}}</td>
       <td>{{projektas.darbas_id.pavadinimas}}</td>
       <td>{{projektas.saskaita_id}}</td>
+        <td>{{projektas.aprasymas | safe}}</td>
         <td>{{projektas.saskaita_id.suma}}</td>
     </tr>
 {% endfor %}

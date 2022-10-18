@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -12,7 +13,8 @@ class Projektas(models.Model):
     darbuotojas_id = models.ForeignKey("Darbuotojas",on_delete=models.SET_NULL,null=True)
     darbas_id = models.ForeignKey("Darbas",on_delete=models.SET_NULL,null=True)
     saskaita_id = models.ForeignKey("Saskaita",on_delete=models.SET_NULL,null=True)
-
+    nuotrauka = models.ImageField('Viršelis', upload_to='projekto_virseliai', null=True)
+    aprasymas = HTMLField('Aprasymas', null=True)
     class Meta:
         verbose_name = "Projektas"
         verbose_name_plural = 'Projektai'
