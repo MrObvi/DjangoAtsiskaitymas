@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Paieškos pagal "{{query}}" rezultatai(Nuorados neveikia):</h1>
+  </br>
+  {% if projektas %}
+  <ul>
+    {% for project in projektas %}
+      <li>
+        <a href="{# project.id #}">{{ project.pavadinimas }}</a> {# project.aprasymas #}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Oops. Nieko neradome :(</p>
+  {% endif %}
+
+  {% endblock %}

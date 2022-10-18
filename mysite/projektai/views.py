@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.db.models import Q
 # REGISTER IMPORTS END
 
 def index(request):
@@ -14,7 +15,6 @@ def index(request):
     context = {
         "projektai": Projektas.objects.all().count(),
     }
-
     return render(request,'index.html', context=context)
 
 def projektai(request):
@@ -23,7 +23,6 @@ def projektai(request):
         "projektai": Projektas.objects.all()
     }
     return render(request,'projektai.html',context=context)
-
 
 @csrf_protect
 def register(request):
@@ -65,3 +64,15 @@ class UserProjektasListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Projektas.objects.filter(vadovas_user=self.request.user)
+
+
+def search(request):
+    """
+    paprasta paieška. query ima informaciją iš paieškos laukelio,
+    search_results prafiltruoja pagal įvestą tekstą knygų pavadinimus ir aprašymus.
+    Icontains nuo contains skiriasi tuo, kad icontains ignoruoja ar raidės
+    didžiosios/mažosios.
+    """
+    query = request.GET.get('query')
+    search_results = Projektas.objects.filter(Q(pavadinimas__icontains=query) | Q(pradzios_data__icontains=query))
+    return render(request, 'search.html', {'projektas': search_results, 'query': query})
