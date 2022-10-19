@@ -69,6 +69,22 @@
 
        <p><a href="{% url 'register' %}">Registruotis</a></p>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+       <!-- Social login prasideda cia jeigu ka -->
+       <div class="row">
+    <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+<!--        <button class="btn btn-danger  mb-2">-->
+<!--            <a href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>-->
+<!--        </button>-->
+        <button class="btn btn-primary mb-2">
+            <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+        </button>
+<!--        <button class="btn btn-info mb-2">-->
+<!--            <a href="#">Login with LinkedIn</a>-->
+<!--        </button>-->
+    </div>
+       </div>
+        <!-- Social login baigesi cia jeigu ka -->
+
   </form>
   <input type="submit" class="btn btn-default btn-lg" value="Reset password">
 
