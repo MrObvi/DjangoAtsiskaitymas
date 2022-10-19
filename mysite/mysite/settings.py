@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-# from .my_settings import MY_SECRET_KEY
+from .my_settings import fkey, fsecret
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -205,8 +205,8 @@ LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = "652734149551059"
-SOCIAL_AUTH_FACEBOOK_SECRET = "e2449ca252c517ada6336a9c696d9964"
+SOCIAL_AUTH_FACEBOOK_KEY = fkey
+SOCIAL_AUTH_FACEBOOK_SECRET = fsecret
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "your_google_clientId"        # App ID
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "your_google_clientsecret"  # App Secret
 
