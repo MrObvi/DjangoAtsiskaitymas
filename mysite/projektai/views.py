@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.db.models import Q
 from .forms import MyForm
+from django.core.paginator import Paginator
 # REGISTER IMPORTS END
 
 
@@ -26,9 +27,13 @@ def index(request):
     return render(request,'index.html', context=context)
 
 def projektai(request):
+    paginator = Paginator(Projektas.objects.all(), 2)
+    page_number = request.GET.get('page')
+    paged_projects = paginator.get_page(page_number)
 
     context = {
-        "projektai": Projektas.objects.all()
+        # "projektai": Projektas.objects.all(),
+        'projektai': paged_projects
     }
     return render(request,'projektai.html',context=context)
 def projektasView(request, projektas_id):
@@ -90,10 +95,10 @@ def search(request):
     return render(request, 'search.html', {'projektas': search_results, 'query': query})
 
 
-class PersonCreateView(CreateView):
-    model = Projektas
-    fields = ('pavadinimas', 'pradzios_data', 'pabaigos_data', 'klientas_id')
-    # template_name = "add-listing.html"
+# class PersonCreateView(CreateView):
+#     model = Projektas
+#     fields = ('pavadinimas', 'pradzios_data', 'pabaigos_data', 'klientas_id')
+#     # template_name = "add-listing.html"
 @login_required
 def addlisting (request):
 
