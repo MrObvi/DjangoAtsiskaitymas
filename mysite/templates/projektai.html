@@ -36,11 +36,17 @@
     </tr>
   </thead>
   <tbody>
+  {% load static %}
   {% for projekto in projektai %}
     <tr>
 
       <th scope="row"><a href="{% url 'projektas' projekto.id %}">{{projekto.pavadinimas}}</a></th>
-      <th><img src="{{ projekto.nuotrauka.url }}" class="card-img-top"></th>
+      {% if projekto.nuotrauka %}
+              <th><img src="{{ projekto.nuotrauka.url }}" class="card-img-top"></th>
+            {% else %}
+             <th> <img src="{% static 'no-image.jpg' %}" class="card-img-top"></th>
+            {% endif %}
+
       <td>{{projekto.pradzios_data}}</td>
       <td>{{projekto.pabaigos_data}}</td>
       <td>{{projekto.darbuotojas_id.pavarde}}</td>

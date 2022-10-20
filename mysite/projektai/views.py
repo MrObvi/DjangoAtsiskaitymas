@@ -1,5 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Projektas
 # REGISTER IMPORTS
@@ -8,6 +10,7 @@ from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.db.models import Q
+from .forms import MyForm
 # REGISTER IMPORTS END
 
 
@@ -85,3 +88,46 @@ def search(request):
     query = request.GET.get('query')
     search_results = Projektas.objects.filter(Q(pavadinimas__icontains=query) | Q(pradzios_data__icontains=query))
     return render(request, 'search.html', {'projektas': search_results, 'query': query})
+
+
+class PersonCreateView(CreateView):
+    model = Projektas
+    fields = ('pavadinimas', 'pradzios_data', 'pabaigos_data', 'klientas_id')
+    # template_name = "add-listing.html"
+@login_required
+def addlisting (request):
+
+
+    # if request.method == "POST":
+    #     pavadinimas = request.POST['pavadinimas']
+    #     prad_data = request.POST['prad-data']
+    #     pab_data= request.POST['pab-data']
+    #     klientas = request.POST['klientas']
+    #     vadovas = request.POST['vadovas']
+    #     darbuotojas = request.POST ['darbuotojas']
+    #     darbas = request.POST ['darbas']
+    #     saskaita = request.POST ['saskaita']
+    #     aprasymas = request.POST ['aprasymas']
+    #     nuotrauka = request.POST ['nuotrauka']
+
+    if request.method == "POST":
+        form = MyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.info(request, "Ikelta")
+    else:
+        form = MyForm()
+        messages.info(request, "Uzpildykite visus privalomus laukus")
+
+
+    return render(request, 'add-listing.html', {'form': form} )
+
+
+    # context = {
+    #     "projektai": Projektas.objects.all()
+    # }
+    #
+    # return render(request, 'add-listing.html', context=context)
+
+# def uploadok(request):
+#     return HttpResponse(' upload successful')

@@ -54,10 +54,14 @@
 
 
 <div class="container author">
-
+{% load static %}
     <h4> {{ projektas.aprasymas | safe }}</h4>
     <hr/>
-    <img src="{{ projektas.nuotrauka.url }}"></img>
+     {% if projektas.nuotrauka %}
+              <th><img src="{{ projektas.nuotrauka.url }}" class="card-img-top"></th>
+            {% else %}
+             <th> <img src="{% static 'no-image.jpg' %}" class="card-img-top"></th>
+            {% endif %}
     </hr>
     </br>
 <!--    <h5>Mes turime šias {{ author.first_name }} {{ author.last_name }} knygas:</h5>-->
