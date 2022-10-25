@@ -13,7 +13,7 @@
 
     <div class="lh-1">
       <h1 class="h6 mb-0 text-white lh-1">Projektai</h1>
-      <small>Visi musu projektai</small>
+      <small>Mano projektai</small>
     </div>
   </div>
 
@@ -33,10 +33,12 @@
       <th scope="col">Saskaita</th>
         <th scope="col">Aprasymas</th>
       <th scope="col">Suma</th>
+          <th scope="col">Redagavimas</th>
     </tr>
   </thead>
   <tbody>
   {% load static %}
+  {% if projektas_list %}
   {% for projektas in projektas_list %}
     <tr>
       <th scope="row"><a href="{% url 'projektas' projektas.id %}">{{projektas.pavadinimas}}</a></th>
@@ -53,8 +55,13 @@
       <td>{{projektas.saskaita_id}}</td>
         <td>{{projektas.aprasymas | safe}}</td>
         <td>{{projektas.saskaita_id.suma}}</td>
+        <td><a href="{% url 'user-projektai-update' projektas.id  %}"> Redaguoti</a></td>
     </tr>
+
 {% endfor %}
+  {% else %}
+  <p>Siuo metu neturite projektu</p>
+  {% endif %}
 <!--    <tr>-->
 <!--      <th scope="row">2</th>-->
 <!--      <td>Jacob</td>-->

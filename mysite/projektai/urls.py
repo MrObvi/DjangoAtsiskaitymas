@@ -11,13 +11,15 @@ urlpatterns = [
     path('projektai/<int:projektas_id>', views.projektasView, name="projektas"),
     path('register/', views.register, name='register'),
     path('user-project/', views.UserProjektasListView.as_view(), name='user-projektai'),
+    path('user-project/<int:pk>/update', views.UserProjektasUpdateView.as_view(), name='user-projektai-update'),
     path('tinymce/', include('tinymce.urls')),
     path('search/', views.search, name='search'),
     # Adding social auth path
     path('social-auth/', include('social_django.urls', namespace="social")),
     path("login/", views.login, name="login"),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
-    path("add-listing/", views.addlisting, name="add-listing")
+    path("add-listing/", views.addlisting, name="add-listing"),
+
 
 
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +

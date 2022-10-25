@@ -18,6 +18,7 @@ class Projektas(models.Model):
     class Meta:
         verbose_name = "Projektas"
         verbose_name_plural = 'Projektai'
+        ordering = ['pradzios_data',]
 
     def __str__(self):
         return f"{self.pavadinimas} {self.klientas_id} {self.vadovas_user} {self.darbuotojas_id} {self.darbas_id}"

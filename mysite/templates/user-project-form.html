@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %} Atnaujinkite projekta {% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Atnaujinkite projekta</h1>
+
+      </div>
+    </div>
+  </section>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}" role="alert">
+                {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+ <form method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+     {% load crispy_forms_tags %}
+    {{  form|crispy   }}
+    <button type="submit" class="btn btn-success">Atnaujinti projekta</button>
+  </form>
+
+
+
+
+<!--<form method="POST">-->
+<!--   {% csrf_token %}-->
+
+<!--  <div class="form-group">-->
+<!--      {{ form.pavadinimas|as_crispy_field }}-->
+<!--    <label for="exampleFormControlInput1">Pavadinimas</label>-->
+<!--    <input name="pavadinimas" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Projekto pavadinimas">-->
+<!--  </div>-->
+<!--    <div class="form-group">-->
+<!--    <label for="exampleFormControlInput1">Pradžios data:</label>-->
+<!--    <input name="prad-data"  type="text" class="form-control" id="exampleFormControlInput2" >-->
+<!--  </div>-->
+<!--    <div class="form-group">-->
+<!--    <label for="exampleFormControlInput1">Pabaigos data:</label>-->
+<!--    <input name="pab-data"  type="text" class="form-control" id="exampleFormControlInput3">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">Klientas id:</label>-->
+<!--    <select name="klientas"  class="form-control" id="exampleFormControlSelect1">-->
+<!--        {% for klientas in projektai %}-->
+
+<!--      <option>{{ klientas.klientas_id }}</option>-->
+<!--      {% endfor %}-->
+<!--    </select>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">Vadovas:</label>-->
+<!--    <select name="vadovas"  class="form-control" id="exampleFormControlSelect2">-->
+<!--        {% for vadovas in projektai %}-->
+
+<!--      <option>{{ vadovas.vadovas_user }}</option>-->
+<!--      {% endfor %}-->
+<!--    </select>-->
+<!--  </div>-->
+<!--    <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">Darbuotojas id:</label>-->
+<!--    <select name="darbuotojas"  class="form-control" id="exampleFormControlSelect3">-->
+<!--        {% for darbuotojas in projektai %}-->
+
+<!--      <option>{{ darbuotojas.darbuotojas_id }}</option>-->
+<!--      {% endfor %}-->
+<!--    </select>-->
+<!--  </div>-->
+<!--    <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">Darbas id:</label>-->
+<!--    <select name="darbas"  class="form-control" id="exampleFormControlSelect4">-->
+<!--        {% for darbas in projektai %}-->
+
+<!--      <option>{{ darbas.darbas_id }}</option>-->
+<!--      {% endfor %}-->
+<!--    </select>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">saskaita id:</label>-->
+<!--    <select name="saskaita" class="form-control" id="exampleFormControlSelect5">-->
+<!--        {% for saskaita in projektai %}-->
+
+<!--      <option>{{ saskaita.saskaita_id }}</option>-->
+<!--      {% endfor %}-->
+<!--    </select>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;    <label for="exampleFormControlSelect2">Example multiple select</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <select multiple class="form-control" id="exampleFormControlSelect2">&ndash;&gt;-->
+<!--&lt;!&ndash;      <option>1</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      <option>2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      <option>3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      <option>4</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      <option>5</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  <div class="form-group">-->
+<!--    <label for="exampleFormControlTextarea1">Aprasymas</label>-->
+<!--    <textarea name="aprasymas"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+<!--  </div>-->
+
+<!--    <div class="form-group">-->
+<!--    <label for="exampleFormControlFile1">Pridekite nuotrauka</label>-->
+<!--    <input name="nuotrauka" type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--  </div>-->
+
+<!--   <button type="submit" class="btn btn-primary mb-2">Pateikti</button>-->
+<!--</form>-->
+<div class="row py-lg-5">
+</div>
+
+
+
+
+    {% endblock %}

@@ -13,6 +13,7 @@ from django.db.models import Q
 from .forms import MyForm
 from django.core.paginator import Paginator
 # REGISTER IMPORTS END
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 # Create your views here.
@@ -27,9 +28,10 @@ def index(request):
     return render(request,'index.html', context=context)
 
 def projektai(request):
-    paginator = Paginator(Projektas.objects.all(), 2)
+    paginator = Paginator(Projektas.objects.all(), 3)
     page_number = request.GET.get('page')
     paged_projects = paginator.get_page(page_number)
+
 
     context = {
         # "projektai": Projektas.objects.all(),
@@ -77,11 +79,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class UserProjektasListView(LoginRequiredMixin, generic.ListView):
     model = Projektas
     template_name = 'user_projektai.html'
-    paginate_by = 1
+    paginate_by = 3
 
     def get_queryset(self):
         return Projektas.objects.filter(vadovas_user=self.request.user)
 
+class UserProjektasUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Projektas
+    fields = ['pavadinimas','pradzios_data','pabaigos_data', 'klientas_id', 'vadovas_user','darbuotojas_id','darbas_id','saskaita_id','nuotrauka','aprasymas']
+    success_url = '/user-project/'
+    template_name = 'user-project-form.html'
+
+    def form_valid(self, form):
+        form.instance.vadovas_user = self.request.user
+        return super().form_valid(form)
+
+    # def test_func(self):
+    #     book = self.get_object()
+    #     return self.request.user == book.reader
 
 def search(request):
     """

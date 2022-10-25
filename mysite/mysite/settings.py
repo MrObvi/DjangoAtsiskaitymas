@@ -217,3 +217,5 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
     ('picture', 'picture'),
     ('link', 'profile_url'),
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
