@@ -84,9 +84,10 @@ class UserProjektasListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return Projektas.objects.filter(vadovas_user=self.request.user)
 
-class UserProjektasUpdateView(LoginRequiredMixin, generic.UpdateView):
+class UserProjektasUpdateView(LoginRequiredMixin,UserPassesTestMixin, generic.UpdateView):
     model = Projektas
-    fields = ['pavadinimas','pradzios_data','pabaigos_data', 'klientas_id', 'vadovas_user','darbuotojas_id','darbas_id','saskaita_id','nuotrauka','aprasymas']
+    form_class = MyForm
+    # fields = ['pavadinimas','pradzios_data','pabaigos_data', 'klientas_id', 'vadovas_user','darbuotojas_id','darbas_id','saskaita_id','nuotrauka','aprasymas']
     success_url = '/user-project/'
     template_name = 'user-project-form.html'
 
@@ -94,9 +95,19 @@ class UserProjektasUpdateView(LoginRequiredMixin, generic.UpdateView):
         form.instance.vadovas_user = self.request.user
         return super().form_valid(form)
 
-    # def test_func(self):
-    #     book = self.get_object()
-    #     return self.request.user == book.reader
+    def test_func(self):
+        projektas = self.get_object()
+        return self.request.user == projektas.vadovas_user
+class UserProjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Projektas
+    success_url = '/user-project/'
+    template_name = 'user-project-delete.html'
+
+    def test_func(self):
+        projektas = self.get_object()
+        return self.request.user == projektas.vadovas_user
+
+
 
 def search(request):
     """
@@ -134,7 +145,7 @@ def addlisting (request):
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.info(request, "Ikelta")
+            messages.info(request, "Projektas Irasytas")
     else:
         form = MyForm()
         messages.info(request, "Uzpildykite visus privalomus laukus")

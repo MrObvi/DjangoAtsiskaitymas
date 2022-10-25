@@ -31,9 +31,11 @@
       <th scope="col">Klientas</th>
       <th scope="col">Darbai</th>
       <th scope="col">Saskaita</th>
-        <th scope="col">Aprasymas</th>
+      <th scope="col">Aprasymas</th>
       <th scope="col">Suma</th>
-          <th scope="col">Redagavimas</th>
+      <th scope="col">Redagavimas</th>
+      <th scope="col">Trinimas</th>
+
     </tr>
   </thead>
   <tbody>
@@ -56,6 +58,7 @@
         <td>{{projektas.aprasymas | safe}}</td>
         <td>{{projektas.saskaita_id.suma}}</td>
         <td><a href="{% url 'user-projektai-update' projektas.id  %}"> Redaguoti</a></td>
+        <td><a href="{% url 'user-projektai-delete' projektas.id  %}"> Trinti</a></td>
     </tr>
 
 {% endfor %}

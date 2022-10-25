@@ -12,6 +12,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('user-project/', views.UserProjektasListView.as_view(), name='user-projektai'),
     path('user-project/<int:pk>/update', views.UserProjektasUpdateView.as_view(), name='user-projektai-update'),
+    path('user-project/<int:pk>/delete', views.UserProjectDeleteView.as_view(), name='user-projektai-delete'),
     path('tinymce/', include('tinymce.urls')),
     path('search/', views.search, name='search'),
     # Adding social auth path
