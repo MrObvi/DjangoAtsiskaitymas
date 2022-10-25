@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load i18n %}
   {% load static %}
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -21,10 +22,10 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{% url 'index' %}" class="nav-link px-2 text-white">Pagrindinis</a></li>
-          <li><a href="{% url 'projektai' %}" class="nav-link px-2 text-white">Visi Projektai</a></li>
+          <li><a href="{% url 'index' %}" class="nav-link px-2 text-white">{% trans "Pagrindinis" %}</a></li>
+          <li><a href="{% url 'projektai' %}" class="nav-link px-2 text-white">{% trans "Visi Projektai" %}</a></li>
             {% if user.is_authenticated %}
-          <li><a href="{% url 'user-projektai' %}" class="nav-link px-2 text-white">Mano Projektai</a></li>
+          <li><a href="{% url 'user-projektai' %}" class="nav-link px-2 text-white">{% trans "Mano Projektai" %}</a></li>
             {% endif %}
 <!--            {% if user.is_superuser %}-->
 <!--                <li><a href="{# url 'admin' #}" class="nav-link px-2 text-white">Admin</a></li>-->
@@ -43,18 +44,36 @@
 
 
           {% if user.is_authenticated %}
-      <a href="{% url 'logout' %}"> <button type="button" class="btn btn-outline-light me-2">Atsijungti</button> </a>
-             <a href="{% url 'add-listing' %}"> <button type="button" class="btn btn-warning">Prideti Projekta</button> </a>
+      <a href="{% url 'logout' %}"> <button type="button" class="btn btn-outline-light me-2">{% trans "Atsijungti" %}</button> </a>
+             <a href="{% url 'add-listing' %}"> <button type="button" class="btn btn-warning">{% trans "Prideti Projekta" %}</button> </a>
           {% else%}
-           <a href="{% url 'login' %}"> <button type="button" class="btn btn-outline-light me-2">Prisijungti</button> </a>
+           <a href="{% url 'login' %}"> <button type="button" class="btn btn-outline-light me-2">{% trans "Prisijungti" %}</button> </a>
 {% endif %}
              {% if not user.is_authenticated %}
-          <a href="{% url 'register' %}"> <button type="button" class="btn btn-warning">Registruotis</button> </a>
+          <a href="{% url 'register' %}"> <button type="button" class="btn btn-warning">{% trans "Registruotis" %}</button> </a>
 
 {% endif %}
+
         </div>
+
+      <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}"/>
+        <select name="language" onchange="this.form.submit()">
+          {% load static %}
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for lang in LANGUAGES %}
+          <option style="background-image: url({% static 'img/lt.png' %});" value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected" {% endif %}>
+            {{ lang.1 }}
+          </option>
+          {% endfor %}
+        </select>
+      </form>
       </div>
+
     </div>
+
   </header>
 <body>
 <div class="container ">

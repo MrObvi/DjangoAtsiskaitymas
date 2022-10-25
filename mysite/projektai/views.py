@@ -15,6 +15,10 @@ from django.core.paginator import Paginator
 # REGISTER IMPORTS END
 from django.contrib.auth.mixins import UserPassesTestMixin
 
+from django.utils.translation import gettext as _
+
+
+
 
 # Create your views here.
 def login(request):
@@ -60,12 +64,12 @@ def register(request):
             # else:
             # tikriname, ar nėra tokio pat email
             if User.objects.filter(email=email).exists():
-                messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
+                messages.error(request, _(f'Vartotojas su el. paštu {email} jau užregistruotas!'))
                 return redirect('register')
             else:
                 # jeigu viskas tvarkoje, sukuriame naują vartotoją
                 User.objects.create_user(username=username, email=email, password=password)
-                messages.info(request, f'Vartotojas {username} užregistruotas!')
+                messages.info(request, _(f'Vartotojas {username} užregistruotas!'))
                 return redirect('login')
         else:
             messages.error(request, 'Slaptažodžiai nesutampa!')
