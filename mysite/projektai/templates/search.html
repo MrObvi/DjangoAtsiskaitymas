@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load i18n %}
-  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
+  <h1>{% blocktrans %} Paieškos pagal "{{query}}" rezultatai: {% endblocktrans %}</h1>
   </br>
   {% if projektas %}
   <ul>
@@ -14,7 +14,7 @@
     {% endfor %}
   </ul>
   {% else %}
-    <p>Oops. Nieko neradome :(</p>
+    <p>{% trans "Oops. Nieko neradome :(" %}</p>
   {% endif %}
 
   {% endblock %}

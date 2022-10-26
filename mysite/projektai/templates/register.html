@@ -34,12 +34,12 @@
 {% endif %}
 
   {% if form.errors %}
-    <p>Prisijungimo klaida, bandykite dar kartą!</p>
+    <p>{% trans "Prisijungimo klaida, bandykite dar kartą!" %}</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Neturite prieigos prie šios informacijos. Turite prisijungti.</p>
+      <p>{% trans "Neturite prieigos prie šios informacijos. Turite prisijungti." %}</p>
     {% endif %}
   {% endif %}
 
@@ -49,7 +49,7 @@
    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-cloudy" viewBox="0 0 16 16">
   <path d="M13.405 8.527a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 14.5H13a3 3 0 0 0 .405-5.973zM8.5 5.5a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1-.001 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 5.5z"/>
 </svg>
-    <h1 class="h3 mb-3 fw-normal">Registracija</h1>
+    <h1 class="h3 mb-3 fw-normal">{% trans "Registracija" %}</h1>
 
 <!--    <div class="form-floating">-->
 <!--      <input type="username" name="username" class="form-control" id="floatingInput" placeholder="User name" required>-->
@@ -57,23 +57,23 @@
 <!--    </div>-->
      <div class="form-floating">
       <input type="email" name="email" class="form-control" id="floatingInput2" placeholder="User name" required>
-      <label for="floatingInput2">El. pastas</label>
+      <label for="floatingInput2">{% trans "El. pastas" %}</label>
     </div>
     <div class="form-floating">
       <input type="password" name="password"  class="form-control" id="floatingPassword" placeholder="Password" required>
-      <label for="floatingPassword">Slaptazodis</label>
+      <label for="floatingPassword">{% trans "Slaptazodis" %}</label>
     </div>
      <div class="form-floating">
       <input type="password" name="password2"  class="form-control" id="floatingPassword2" placeholder="Password" required>
-      <label for="floatingPassword2">Pakartoti slaptazodi</label>
+      <label for="floatingPassword2">{% trans "Pakartoti slaptazodi" %}</label>
     </div>
 
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Registruotis</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">{% trans "Registruotis" %}</button>
      <input type="hidden" name="next" value="{{ next }}" />
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
   </form>
-  <p><a href="{% url 'login' %}">Prisijungti</a></p>
+  <p><a href="{% url 'login' %}">{% trans "Prisijungti" %}</a></p>
 </main>
 
 

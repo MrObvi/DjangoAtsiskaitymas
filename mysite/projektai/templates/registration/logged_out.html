@@ -3,6 +3,6 @@
 {% block content %}
 {% load i18n %}
 <hr/>
-  <h2>Sėkmingai atsijungėte!</h2>
-  <a href="{% url 'login'%}">Prisijungti iš naujo.</a>
+  <h2>{% trans "Sėkmingai atsijungėte!" %}</h2>
+  <a href="{% url 'login'%}">{% trans "Prisijungti iš naujo." %}</a>
 {% endblock %}

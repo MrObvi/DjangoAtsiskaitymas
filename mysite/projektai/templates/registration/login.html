@@ -34,12 +34,12 @@
 {% endif %}
 
   {% if form.errors %}
-    <p>Prisijungimo klaida, bandykite dar kartą!</p>
+    <p>{% trans "Prisijungimo klaida, bandykite dar kartą!" %}</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Neturite prieigos prie šios informacijos. Turite prisijungti.</p>
+      <p>{% trans "Neturite prieigos prie šios informacijos. Turite prisijungti." %}</p>
     {% endif %}
   {% endif %}
 
@@ -49,26 +49,26 @@
    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-cloudy" viewBox="0 0 16 16">
   <path d="M13.405 8.527a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 14.5H13a3 3 0 0 0 .405-5.973zM8.5 5.5a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1-.001 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 5.5z"/>
 </svg>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">{% trans "Prasome prisijungti" %}</h1>
 
     <div class="form-floating">
       <input type="username" name="username" class="form-control" id="floatingInput" placeholder="User name">
-      <label for="floatingInput">User Name</label>
+      <label for="floatingInput">{% trans "Vartotojo vardas" %}</label>
     </div>
     <div class="form-floating">
       <input type="password" name="password"  class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">{% trans "Slaptazodis" %}</label>
     </div>
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me">{% trans "Prisiminti mane" %}
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">{% trans "Prisijungti" %}</button>
      <input type="hidden" name="next" value="{{ next }}" />
 
-       <p><a href="{% url 'register' %}">Registruotis</a></p>
+       <p><a href="{% url 'register' %}">{% trans "Registruotis" %}</a></p>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
        <!-- Social login prasideda cia jeigu ka -->
        <div class="row">
@@ -77,7 +77,7 @@
 <!--            <a href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>-->
 <!--        </button>-->
         <button class="btn btn-primary mb-2">
-            <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+            <a href="{% url 'social:begin' 'facebook' %}">{% trans "Prisijungti su Facebook" %}</a>
         </button>
 <!--        <button class="btn btn-info mb-2">-->
 <!--            <a href="#">Login with LinkedIn</a>-->
@@ -87,11 +87,11 @@
         <!-- Social login baigesi cia jeigu ka -->
 
   </form>
-  <input type="submit" class="btn btn-default btn-lg" value="Reset password">
+  <input type="submit" class="btn btn-default btn-lg" value="{% trans 'Reset password' %}">
 
-  <p><a href="{% url 'password_reset' %}">Pamiršote slaptažodį?</a></p>
+  <p><a href="{% url 'password_reset' %}">{% trans "Pamiršote slaptažodį?" %}</a></p>
     <hr>
-    <p><a href="{% url 'index' %}">Gristi i pagrindini puslapi</a></p>
+    <p><a href="{% url 'index' %}">{% trans "Gristi i pagrindini puslapi" %}</a></p>
 
 </main>
 

@@ -3,164 +3,402 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 09:55+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2022-10-26 11:56+0300\n"
+"PO-Revision-Date: 2022-10-26 11:58+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2\n"
 
 #: .\models.py:9 .\models.py:53
 msgid "Pavadinimas"
-msgstr ""
+msgstr "Title"
 
-#: .\models.py:10
+#: .\models.py:10 .\templates\projektai.html:28 .\templates\projektas.html:25
+#: .\templates\user_projektai.html:29
 msgid "Pradžios data"
-msgstr ""
+msgstr "Start date"
 
-#: .\models.py:11
+#: .\models.py:11 .\templates\projektai.html:29 .\templates\projektas.html:26
+#: .\templates\user_projektai.html:30
 msgid "Pabaigos data"
-msgstr ""
+msgstr "End date"
 
 #: .\models.py:17
 msgid "Viršelis"
-msgstr ""
+msgstr "Cover"
 
-#: .\models.py:18
+#: .\models.py:18 .\templates\projektai.html:34
+#: .\templates\user_projektai.html:35
 msgid "Aprasymas"
-msgstr ""
+msgstr "Discription"
 
-#: .\models.py:20
+#: .\models.py:20 .\templates\projektai.html:26 .\templates\projektas.html:15
+#: .\templates\projektas.html:23 .\templates\user_projektai.html:27
 msgid "Projektas"
-msgstr ""
+msgstr "Project"
 
-#: .\models.py:21
+#: .\models.py:21 .\templates\projektai.html:15
+#: .\templates\user_projektai.html:16
 msgid "Projektai"
-msgstr ""
+msgstr "Projects"
 
 #: .\models.py:28 .\models.py:41
 msgid "Vardas"
-msgstr ""
+msgstr "Name"
 
 #: .\models.py:29 .\models.py:42
 msgid "Pavardė"
-msgstr ""
+msgstr "Surname"
 
 #: .\models.py:30
 msgid "Įmonė"
-msgstr ""
+msgstr "Company"
 
 #: .\models.py:31
 msgid "Kontaktai"
-msgstr ""
+msgstr "Contacts"
 
-#: .\models.py:34
+#: .\models.py:34 .\templates\projektai.html:31 .\templates\projektas.html:28
+#: .\templates\user_projektai.html:32
 msgid "Klientas"
-msgstr ""
+msgstr "Client"
 
 #: .\models.py:35
 msgid "Klientai"
-msgstr ""
+msgstr "Clients"
 
 #: .\models.py:43
 msgid "Pareigos"
-msgstr ""
+msgstr "Position held"
 
 #: .\models.py:46
 msgid "Darbuotojas"
-msgstr ""
+msgstr "Employe"
 
-#: .\models.py:47
+#: .\models.py:47 .\templates\projektai.html:30 .\templates\projektas.html:27
+#: .\templates\user_projektai.html:31
 msgid "Darbuotojai"
-msgstr ""
+msgstr "Employes"
 
 #: .\models.py:54
 msgid "Pastabos"
-msgstr ""
+msgstr "notes"
 
 #: .\models.py:57
 msgid "Darbas"
-msgstr ""
+msgstr "Job"
 
-#: .\models.py:58
+#: .\models.py:58 .\templates\projektai.html:32 .\templates\projektas.html:29
+#: .\templates\user_projektai.html:33
 msgid "Darbai"
-msgstr ""
+msgstr "Jobs"
 
 #: .\models.py:64
 msgid "Išrašymo data"
-msgstr ""
+msgstr "The date of issue"
 
-#: .\models.py:65
+#: .\models.py:65 .\templates\projektai.html:35
+#: .\templates\user_projektai.html:36
 msgid "Suma"
-msgstr ""
+msgstr "Sum"
 
-#: .\models.py:68
+#: .\models.py:68 .\templates\projektai.html:33 .\templates\projektas.html:30
+#: .\templates\user_projektai.html:34
 msgid "Saskaita"
-msgstr ""
+msgstr "Invoice"
 
 #: .\models.py:69
 msgid "Saskaitos"
-msgstr ""
+msgstr "Invoices"
+
+#: .\templates\add-listing.html:9
+#, fuzzy
+#| msgid "Prideti Projekta"
+msgid "Pridekite nauja projekta"
+msgstr "Add project"
+
+#: .\templates\add-listing.html:25
+#, fuzzy
+#| msgid "Prideti Projekta"
+msgid "Prideti projekta"
+msgstr "Add project"
+
+#: .\templates\base.html:24
+msgid "Pagrindinis"
+msgstr "Home"
 
 #: .\templates\base.html:25
-msgid "Pagrindinis"
-msgstr ""
-
-#: .\templates\base.html:26
 msgid "Visi Projektai"
-msgstr ""
+msgstr "All Projects"
 
-#: .\templates\base.html:28
+#: .\templates\base.html:27
 msgid "Mano Projektai"
-msgstr ""
+msgstr "My Projects"
+
+#: .\templates\base.html:38
+msgid "Ieskokite..."
+msgstr "Search..."
+
+#: .\templates\base.html:45
+msgid "Atsijungti"
+msgstr "Log out"
 
 #: .\templates\base.html:46
-msgid "Atsijungti"
-msgstr ""
-
-#: .\templates\base.html:47
 msgid "Prideti Projekta"
-msgstr ""
+msgstr "Add project"
 
-#: .\templates\base.html:49
+#: .\templates\base.html:48 .\templates\register.html:76
+#: .\templates\registration\login.html:68
+#: .\templates\registration\password_reset_form.html:50
 msgid "Prisijungti"
-msgstr ""
+msgstr "Log in"
 
-#: .\templates\base.html:52
+#: .\templates\base.html:51 .\templates\register.html:72
+#: .\templates\registration\login.html:71
 msgid "Registruotis"
-msgstr ""
+msgstr "Registration"
 
 #: .\templates\index.html:11
 msgid "Labas"
-msgstr ""
+msgstr "Hello"
 
 #: .\templates\index.html:13
 msgid "UAB Paskutines statybos"
-msgstr ""
+msgstr "LTD Paskutines statybos"
 
 #: .\templates\index.html:14
 #, python-format
 msgid "Mes vygdome daugiau nei %(projektai)s projektus "
-msgstr ""
+msgstr "We are running more than %(projektai)s  projects"
 
 #: .\templates\index.html:16
 msgid "Visi projektai"
+msgstr "All projects"
+
+#: .\templates\projektai.html:16
+msgid "Visi musu projektai"
+msgstr "All our projects"
+
+#: .\templates\projektai.html:27 .\templates\user_projektai.html:28
+msgid "Nuotrauka"
+msgstr "Image"
+
+#: .\templates\projektas.html:32
+#, fuzzy
+#| msgid "Suma"
+msgid "Suma<"
+msgstr "Sum"
+
+#: .\templates\register.html:37 .\templates\registration\login.html:37
+msgid "Prisijungimo klaida, bandykite dar kartą!"
+msgstr "Login error, please try again!"
+
+#: .\templates\register.html:42 .\templates\registration\login.html:42
+msgid "Neturite prieigos prie šios informacijos. Turite prisijungti."
+msgstr "You do not have access to this information. You must log in."
+
+#: .\templates\register.html:52
+#, fuzzy
+#| msgid "Registruotis"
+msgid "Registracija"
+msgstr "Registration"
+
+#: .\templates\register.html:60
+msgid "El. pastas"
+msgstr "Email"
+
+#: .\templates\register.html:64 .\templates\registration\login.html:60
+msgid "Slaptazodis"
+msgstr "Password"
+
+#: .\templates\register.html:68
+msgid "Pakartoti slaptazodi"
+msgstr "Repeat the password"
+
+#: .\templates\registration\logged_out.html:6
+msgid "Sėkmingai atsijungėte!"
+msgstr "You have successfully logged out!"
+
+#: .\templates\registration\logged_out.html:7
+#, fuzzy
+#| msgid "Prisijungti"
+msgid "Prisijungti iš naujo."
+msgstr "Log in"
+
+#: .\templates\registration\login.html:52
+msgid "Prasome prisijungti"
+msgstr "Please Log in"
+
+#: .\templates\registration\login.html:56
+msgid "Vartotojo vardas"
+msgstr "User name"
+
+#: .\templates\registration\login.html:65
+msgid "Prisiminti mane"
+msgstr "Remember me"
+
+#: .\templates\registration\login.html:80
+msgid "Prisijungti su Facebook"
+msgstr "Log in with Facebook"
+
+#: .\templates\registration\login.html:90
+msgid "Reset password"
+msgstr "Atstatyti slaptazodi"
+
+#: .\templates\registration\login.html:92
+msgid "Pamiršote slaptažodį?"
+msgstr "forgot your password?"
+
+#: .\templates\registration\login.html:94
+msgid "Gristi i pagrindini puslapi"
+msgstr "Return to the main page"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Slaptažodis pakeistas!"
+msgstr "Password changed!"
+
+#: .\templates\registration\password_reset_complete.html:7
+#, fuzzy
+#| msgid "Prisijungti"
+msgid "prisijungti iš naujo"
+msgstr "Log in"
+
+#: .\templates\registration\password_reset_confirm.html:7
+msgid "Įveskite naują slaptažodį ir pakartokite."
+msgstr "Enter a new password and repeat."
+
+#: .\templates\registration\password_reset_confirm.html:13
+msgid "Naujas slaptažodis:"
+msgstr "New password:"
+
+#: .\templates\registration\password_reset_confirm.html:18
+msgid "Patvirtinkite:"
+msgstr "Confirm:"
+
+#: .\templates\registration\password_reset_confirm.html:28
+msgid "Nepavyko pakeisti slaptažodžio"
+msgstr "Failed to change password"
+
+#: .\templates\registration\password_reset_confirm.html:29
+msgid ""
+"Slaptažodžio pakeitimo nuoroda negaliojanti. Prašome inicijuoti slaptažodžio "
+"keitimą iš naujo."
 msgstr ""
+"The password reset link is invalid. Please initiate the password reset."
+
+#: .\templates\registration\password_reset_done.html:6
+msgid "Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!"
+msgstr "We've emailed you a password reset link!"
+
+#: .\templates\registration\password_reset_email.html:1
+msgid ""
+"Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, "
+"sekite nuoroda žemiau:"
+msgstr ""
+"Someone sent us a password change request. If that was you, follow the link "
+"below:"
+
+#: .\templates\registration\password_reset_form.html:37
+msgid "Iveskite el pasto adresa"
+msgstr "Enter your email address"
+
+#: .\templates\registration\password_reset_form.html:41
+msgid "El pastas"
+msgstr "E. mail"
+
+#: .\templates\registration\password_reset_form.html:44
+msgid "Atstatyti"
+msgstr "Restore"
+
+#: .\templates\search.html:5
+#, python-format
+msgid " Paieškos pagal \"%(query)s\" rezultatai: "
+msgstr "Search results for \"%(query)s\":"
+
+#: .\templates\search.html:17
+msgid "Oops. Nieko neradome :("
+msgstr "Oops. We found nothing :("
+
+#: .\templates\user-project-delete.html:10
+msgid "Ištrinti projekta"
+msgstr "Delete project"
+
+#: .\templates\user-project-delete.html:11
+msgid "Ar tikrai norite ištrinti knygą"
+msgstr "Are you sure you want to delete the book?"
+
+#: .\templates\user-project-delete.html:14
+msgid "Taip, ištrinti"
+msgstr "Yes, delete"
+
+#: .\templates\user-project-delete.html:15
+msgid "Atšaukti"
+msgstr "Cancel"
+
+#: .\templates\user-project-form.html:10
+msgid "Atnaujinkite projekta"
+msgstr "Update the project"
+
+#: .\templates\user-project-form.html:26
+msgid "Atnaujinti projekta"
+msgstr "Update project"
+
+#: .\templates\user_projektai.html:37
+msgid "Redagavimas"
+msgstr "Editing"
+
+#: .\templates\user_projektai.html:38
+msgid "Trinimas"
+msgstr "Remover"
+
+#: .\templates\user_projektai.html:61
+#, fuzzy
+#| msgid "Registruotis"
+msgid "Redaguoti"
+msgstr "Registration"
+
+#: .\templates\user_projektai.html:62
+msgid "Trinti"
+msgstr "Delete"
+
+#: .\templates\user_projektai.html:67
+msgid "Siuo metu neturite projektu"
+msgstr "You currently do not have a project"
+
+#: .\templates\user_projektai.html:86
+msgid "pirmas"
+msgstr "first"
+
+#: .\templates\user_projektai.html:87
+msgid "atgal"
+msgstr "back"
+
+#: .\templates\user_projektai.html:95
+msgid "pirmyn"
+msgstr "forward"
+
+#: .\templates\user_projektai.html:96
+msgid "paskutinis"
+msgstr "last"
 
 #: .\views.py:67
 #, python-brace-format
 msgid "Vartotojas su el. paštu {email} jau užregistruotas!"
-msgstr ""
+msgstr "User with e-mail by mail {email} already registered!"
 
 #: .\views.py:72
 #, python-brace-format
 msgid "Vartotojas {username} užregistruotas!"
-msgstr ""
+msgstr "User {username} is registered!"
+
+#~ msgid "Search..."
+#~ msgstr "Search..."

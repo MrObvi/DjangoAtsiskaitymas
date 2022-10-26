@@ -13,8 +13,8 @@
 
 
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1">Projektai</h1>
-      <small>Mano projektai</small>
+      <h1 class="h6 mb-0 text-white lh-1">{% trans "Projektai" %}</h1>
+      <small>{% trans "Mano projektai</small>
     </div>
   </div>
 
@@ -24,18 +24,18 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Projektas</th>
-      <th scope="col">Nuotrauka</th>
-      <th scope="col">Pradžios data</th>
-      <th scope="col">Pabaigos data</th>
-      <th scope="col">Darbuotojai</th>
-      <th scope="col">Klientas</th>
-      <th scope="col">Darbai</th>
-      <th scope="col">Saskaita</th>
-      <th scope="col">Aprasymas</th>
-      <th scope="col">Suma</th>
-      <th scope="col">Redagavimas</th>
-      <th scope="col">Trinimas</th>
+      <th scope="col">{% trans "Projektas" %}</th>
+      <th scope="col">{% trans "Nuotrauka" %}</th>
+      <th scope="col">{% trans "Pradžios data" %}</th>
+      <th scope="col">{% trans "Pabaigos data" %}</th>
+      <th scope="col">{% trans "Darbuotojai" %}</th>
+      <th scope="col">{% trans "Klientas" %}</th>
+      <th scope="col">{% trans "Darbai" %}</th>
+      <th scope="col">{% trans "Saskaita" %}</th>
+      <th scope="col">{% trans "Aprasymas" %}</th>
+      <th scope="col">{% trans "Suma" %}</th>
+      <th scope="col">{% trans "Redagavimas" %}</th>
+      <th scope="col">{% trans "Trinimas" %}</th>
 
     </tr>
   </thead>
@@ -58,13 +58,13 @@
       <td>{{projektas.saskaita_id}}</td>
         <td>{{projektas.aprasymas | safe}}</td>
         <td>{{projektas.saskaita_id.suma}}</td>
-        <td><a href="{% url 'user-projektai-update' projektas.id  %}"> Redaguoti</a></td>
-        <td><a href="{% url 'user-projektai-delete' projektas.id  %}"> Trinti</a></td>
+        <td><a href="{% url 'user-projektai-update' projektas.id  %}"> {% trans "Redaguoti" %}</a></td>
+        <td><a href="{% url 'user-projektai-delete' projektas.id  %}"> {% trans "Trinti" %}</a></td>
     </tr>
 
 {% endfor %}
   {% else %}
-  <p>Siuo metu neturite projektu</p>
+  <p>{% trans "Siuo metu neturite projektu" %}</p>
   {% endif %}
 <!--    <tr>-->
 <!--      <th scope="row">2</th>-->
@@ -83,8 +83,8 @@
   <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page=1">&laquo; {% trans "pirmas" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "atgal" %}</a>
         {% endif %}
 
         <span class="current">
@@ -92,8 +92,8 @@
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{% trans "pirmyn" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "paskutinis" %} &raquo;</a>
         {% endif %}
     </span>
 </div>
