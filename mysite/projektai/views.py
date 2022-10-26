@@ -132,7 +132,6 @@ def search(request):
 @login_required
 def addlisting (request):
 
-
     # if request.method == "POST":
     #     pavadinimas = request.POST['pavadinimas']
     #     prad_data = request.POST['prad-data']
