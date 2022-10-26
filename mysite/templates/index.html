@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% load i18n %}
+
 {% block title %} Pagrindinis{% endblock %}
 
 {% block content %}
-
+{% load i18n %}
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         {% if user.is_authenticated %}
-        <h1 class="fw-light">{% trans "Sveiki" %} {{ user}}</h1>
+        <h1 class="fw-light">{% trans "Labas" %} {{ user}}</h1>
         {% endif %}
         <h1 class="fw-light">{% trans "UAB Paskutines statybos" %}</h1>
         <p class="lead text-muted">{% blocktrans %}Mes vygdome daugiau nei {{projektai}} projektus {% endblocktrans %}</p>
